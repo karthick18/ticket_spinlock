@@ -1,4 +1,8 @@
+MACH := $(shell uname)
 CC := gcc
+ifeq ("$(strip $(MACH))", "Darwin")
+  CC := cc
+endif	
 SRCS := spinlock_test.c
 OBJS := $(SRCS:%.c=%.o)
 DEBUG_FLAGS := -g
