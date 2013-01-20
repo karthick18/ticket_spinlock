@@ -14,6 +14,6 @@ A new thread desiring to own the lock atomically reads the current tail or its o
 If the head matches the tail, then the lock can be taken by the thread.
 In case of a mismatch, the thread spins waiting for the head to match its tail or its position in the line.
 
-To unlock, the thread just increments the head position in the lock to indicate the next turn that would be grabbed based on the thread that matches the head with its allotted tail position.
+To unlock, the thread just increments the head position in the lock to indicate the next turn that would be grabbed by the thread that matches the head with its allotted tail position.
 
 This mechanism ensures lock fairness without resorting to randomness which would result if we have all the threads spinning for a global lock to get to 1 or unlocked state.
